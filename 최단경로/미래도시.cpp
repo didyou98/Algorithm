@@ -51,10 +51,69 @@
 */
 
 #include <bits/stdc++.h>
-
+#define INF 1e9
+ 
 using namespace std;
+
+// 회사의 개수 n, 도로 개수 m 
+int n, m;
+
+// 간선 정보 그래프 
+int graph[501][501];
 
 int main(void)
 {
+	// 회사의 개수와 도로 입력받기 
+	cin >> n >> m;
 	
+	// 무한으로 초기화 
+    for(int i = 0; i < 501; i++)
+    {
+    	fill(graph[i], graph[i] + 501, INF);
+	}
+	
+	// 자기 자신 0으로 초기화 
+	for(int a = 1; a <= n; a++)
+	{
+		for(int b = 1; b <= n; b++)
+		{
+			if(a == b) graph[a][b] = 0;
+		}
+	}
+	
+	// 연결된 도로의 비용을 1로 초기화 
+	for(int i = 0; i < m; i++)
+	{
+		int a, b;
+		cin >> a >> b;
+		graph[a][b] = 1;
+		graph[b][a] = 1;
+	}
+	// k회사를 거처 x번 회사를 가기 위해 입력 
+	int k, x;
+	cin >> x >> k;
+	
+	// 플로이드워샬 수행 
+	for(int k = 1; k <= n; k++)
+	{
+		for(int a = 1; a <= n; a++)
+		{
+			for(int b = 1; b <= n; b++)
+			{
+				graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b]);
+			}	
+		}	
+	} 
+	
+	int result = graph[1][k] + graph[k][x];
+	
+	
+	if(result >= INF)
+	{
+		cout << -1 << endl;	
+	}
+	else
+	{
+		cout << result << endl;
+	}
 }
