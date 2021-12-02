@@ -2,7 +2,11 @@
 
 using namespace std;
 
+priority_queue<pair<int, pair<int, int>>> pq;
 int main(void)
 {
-	cout << "Hello, world!";
+	pq.push({1, {0, 1}});
+	cout << pq.top().first;
+	cout << pq.top().second.first;
+	
 }

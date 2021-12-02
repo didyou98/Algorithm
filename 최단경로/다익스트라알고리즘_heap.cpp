@@ -41,6 +41,7 @@ void dijkstra(int start) {
     while (!pq.empty()) { // 큐가 비어있지 않다면
         // 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
         int dist = -pq.top().first; // 현재 노드까지의 비용 
+        cout << "dist : " << dist << endl;
         int now = pq.top().second; // 현재 노드
         pq.pop();
         // 현재 노드가 이미 처리된 적이 있는 노드라면 무시
@@ -82,7 +83,7 @@ int main(void) {
         }
         // 도달할 수 있는 경우 거리를 출력
         else {
-            cout << d[i] << '\n';
+            cout << i <<"번째 노드 :" << d[i] << '\n';
         }
     }
 }
