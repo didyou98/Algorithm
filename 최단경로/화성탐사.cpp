@@ -33,6 +33,12 @@
 	9 4 0 7 6 4 1
 	5 8 3 2 4 8 3
 	7 4 8 4 8 3 4 
+	
+	출력
+	20
+	19
+	36
+	 
 */
 
 #include <bits/stdc++.h>
@@ -67,20 +73,19 @@ void dijkstra(int start)
 		x = pq.top().second.first;
 		y = pq.top().second.second;
 		pq.pop();
-		if(d[x][y] < dist) continue;
+//		if(d[x][y] < dist) continue;
 		// 상하좌우 확인
 		for(int i = 0; i < 4; i++)
 		{
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue; // 맵 밖으로 벗어나면 continue
+			if (nx < 0 || nx >= n || ny < 0 || ny >= n) {continue;}; // 맵 밖으로 벗어나면 continue
 			int cost = dist + graph[nx][ny];
 			if(cost < d[nx][ny])
 			{
 			    d[nx][ny] = cost;
                 pq.push({-cost, {nx, ny}});
 			}
-			
 		} 
 	} 
 }

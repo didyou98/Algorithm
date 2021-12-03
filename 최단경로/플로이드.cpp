@@ -94,15 +94,9 @@ int main(void)
 			}
 		}
 	}
-	cout << endl;
 	for (int a = 1; a <= n; a++) {
         for (int b = 1; b <= n; b++) {
-            if (graph[a][b] == INF) {
-                cout << "INFINITY" << ' ';
-            }
-            else {
-                cout << graph[a][b] << ' ';
-            }
+            cout << graph[a][b] << " ";
         }
         cout << endl;
     }

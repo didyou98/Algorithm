@@ -2,12 +2,12 @@
 
 using namespace std;
 
-vector<pair<int, int>> graph[100001];
+priority_queue<pair<int, pair<int, int>>> pq;
 
 int main(void)
 {
-	graph[1].push_back({2, 4});
-
-	cout << graph[1].size() << endl;
+	pq.push({-5, {0, 1}});
+	pq.push({-8, {1, 0}});
+	cout << pq.top().first;
 	
 }
