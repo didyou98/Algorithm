@@ -35,7 +35,42 @@
 
 using namespace std;
 
+string str;
+int x, y;
+int dx1[] = {0, 0, -2, 2};
+int dy1[] = {-2, 2, 0, 0};
+int dx2[] = {-1, 1, 0, 0};
+int dy2[] = {0, 0, -1, 1};
+
+
 int main(void)
 {
+	int count = 0;
+	getline(cin, str);
+	x = str[1] - '0';
+	y = str[0] - '0' - 48;
+	cout << "(" << x << "," << y << ")" << endl;
+	int nx = 0, ny = 0;
+	for(int i = 0; i < 4; i++)
+	{
+		cout << "i : " << i << endl;
+		nx = x + dx1[i];
+		ny = y + dy1[i];
+		if(nx <= 0 || ny <= 0 || ny > 8 || nx > 8) continue;
+		cout << "µÎÄ­ ÀÌµ¿ ÁÂÇ¥ : " << "(" << nx << "," << ny << ")" << endl;
+		for(int j = i - 1; j <= i; j++)
+		{
+			cout << "j : " << j << endl;
+			nx = x + dx1[i];
+			ny = y + dy1[i];
+			nx += dx2[j];
+			ny += dy2[j];	
+			if(nx <= 0 || ny <= 0 || ny > 8 || nx > 8) continue;
+			cout << "ÇÑÄ­ ÀÌµ¿ ÁÂÇ¥ : " << "(" << nx << "," << ny << ")" << endl;
+			count++;	
+		}
+
+	}
 	
+	cout << count << endl;
 }
