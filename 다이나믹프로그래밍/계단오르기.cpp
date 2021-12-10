@@ -66,16 +66,19 @@ int d[301];
 int main(void)
 {
 	cin >> n;
-	for(int i = 0; i < n ; i++)
+	for(int i = 0; i < n; i++)
 	{
 		cin >> graph[i];
 	} 
+	
 	d[0] = graph[0];
 	d[1] = max(graph[0] + graph[1], graph[1]);
 	d[2] = max(graph[0] + graph[2], graph[1] + graph[2]);
-	for(int i = 2; i <= n; i++)
+	
+	for(int i = 2; i <= n + 1; i++)
 	{
 		d[i] = max(d[i - 2] + graph[i], d[i - 3] + graph[i] + graph[i - 1]); 
 	}
-	cout << d[n - 1] << endl;
+	
+	cout << d[n] ;
 } 

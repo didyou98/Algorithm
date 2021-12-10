@@ -27,6 +27,5 @@ long long fibo(int x)
 
 int main(void)
 {
-	fill(d, d + 100, 0);
-	cout << fibo(50);
+	cout << fibo(10);
 }

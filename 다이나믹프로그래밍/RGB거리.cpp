@@ -61,6 +61,16 @@ int main(void)
 		d[i][2] = min(d[i-1][0], d[i-1][1]) + graph[i][2];
 	}
 	
-	cout << min(min(d[n][0], d[n][1]), d[n][2]);
+	cout << "최소비용 : " << min(min(d[n][0], d[n][1]), d[n][2]);
+	cout << endl;
+	cout << endl;
+	for(int i = 1; i <= n; i++)
+	{
+		for(int j = 0; j < 3; j++)
+		{
+			cout << d[i][j] << " ";
+		}
+		cout << endl;
+	}
 	
 }
