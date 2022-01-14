@@ -31,7 +31,25 @@
 
 using namespace std;
 
+int t;
+
 int main(void)
 {
-	
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	cin >> t;
+	for(int i = 0; i < t; i++)
+	{
+		int len; string s;
+		cin >> len;
+		cin >> s;
+		for(int j = 0; j < s.size(); j++)
+		{
+			for(int k = 0; k < len; k++)
+			{
+				cout << s[j];
+			}
+		}
+		cout << "\n";
+	}
 } 
